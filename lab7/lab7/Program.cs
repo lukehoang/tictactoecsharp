@@ -1,4 +1,8 @@
-﻿using System;
+﻿
+//Luke-Mung Hoang
+//Lab7 - QA
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +12,19 @@ namespace lab7
 {
     public class Program
     {
-        static char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        public char[] arr = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
         static void Main(string[] args)
         {
 
         }
 
+
+        //method to create the game board
         public void createBoard()
 
         {
-
+            
             Console.WriteLine("     |     |      ");
 
             Console.WriteLine("  {0}  |  {1}  |  {2}", arr[1], arr[2], arr[3]);
@@ -39,11 +45,14 @@ namespace lab7
 
         }
 
+        //method to check the current player
         public char currentPlayer(char currentPlayer)
         {
             return currentPlayer;
         }
 
+
+        //method to changePlayer from X to O and from O to X. Assuming the player is always X and O in TicTacToe game
         public char changePlayer(char currentPlayer)
         {
             if (currentPlayer == 'X')
@@ -58,20 +67,24 @@ namespace lab7
             return currentPlayer;
         }
 
-        public void makeMove(char player, out int choice)
+        //method to make a game move
+        public void makeMove(char player, int move)
         {
-
-            choice = int.Parse(Console.ReadLine());
 
             if (player == 'X')
             {
-                arr[choice] = 'X';
+                arr[move] = 'X';
             }
             else
-                arr[choice] = 'O';
+            {
+                arr[move] = 'O';
+            }
 
         }
 
+        //method to check whether if a field is unoccupied.
+        //if empty return True
+        //if be used return False
         public bool spaceInUse(int position)
         {
             if (arr[position] == 'O' || arr[position] == 'X')
